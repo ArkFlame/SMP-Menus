@@ -1,0 +1,72 @@
+# Maven / Java build output
+target/
+build/
+out/
+*.class
+*.log
+
+# Packaged artifacts generated locally
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Keep Maven wrapper jar if project adds wrapper later
+!/.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+*.properties.local
+application-local.yml
+application-local.yaml
+
+# Runtime / local Minecraft server folders
+run/
+server/
+servers/
+plugins/
+logs/
+crash-reports/
+cache/
+world/
+world_nether/
+world_the_end/
+banned-players.json
+banned-ips.json
+ops.json
+usercache.json
+whitelist.json
+
+# Plugin runtime data copied from server runs
+SMPMenus/
+SMPHelp/
+DonutHelp/
+
+# Test reports / coverage
+coverage/
+.jacoco/
+jacoco.exec
+
+# Dependency / tool caches
+.mvn/timing.properties
+.mvn/wrapper/MavenWrapperDownloader.java

@@ -1,0 +1,156 @@
+# SMPMenus staff menu
+enabled: true
+menu_title: '&8Staff Menu'
+open_command:
+  - staffmenu
+size: 27
+rows: 3
+register_command: true
+permission: smpmenus.staff
+update_interval: 0
+close_on_click: false
+click_cooldown: 500
+open_commands:
+  - '[sound] BLOCK_CHEST_OPEN'
+
+items:
+  filler_glass:
+    material: GRAY_STAINED_GLASS_PANE
+    legacy_material: STAINED_GLASS_PANE
+    data: 7
+    slots: [0-26]
+    priority: -100
+    display_name: '&r'
+
+  god:
+    material: GOLDEN_APPLE
+    legacy_material: GOLDEN_APPLE
+    slot: 10
+    priority: 10
+    click_permission: smpmenus.staff
+    display_name: '&#FFD700&lGOD MODE'
+    lore:
+      - '&7Toggle god mode.'
+      - ''
+      - '&8• &7Useful for moderation'
+      - '&8• &7Avoid accidental damage'
+      - '&8• &7Command: &f/god'
+      - ''
+      - '&e▶ &lCLICK &7to Toggle'
+    click_commands:
+      - '[close]'
+      - '[player] god'
+
+  fly:
+    material: FEATHER
+    legacy_material: FEATHER
+    slot: 11
+    priority: 10
+    click_permission: smpmenus.staff
+    display_name: '&#E6E6FA&lFLY'
+    lore:
+      - '&7Toggle staff flight.'
+      - ''
+      - '&8• &7Move through builds faster'
+      - '&8• &7Inspect areas safely'
+      - '&8• &7Command: &f/fly'
+      - ''
+      - '&e▶ &lCLICK &7to Toggle'
+    click_commands:
+      - '[close]'
+      - '[player] fly'
+
+  creative:
+    material: DIAMOND_PICKAXE
+    legacy_material: DIAMOND_PICKAXE
+    slot: 12
+    priority: 10
+    click_permission: smpmenus.staff
+    display_name: '&#00BFFF&lCREATIVE MODE'
+    lore:
+      - '&7Switch to creative mode.'
+      - ''
+      - '&8• &7Build and repair quickly'
+      - '&8• &7Use only for staff duties'
+      - '&8• &7Command: &f/gamemode 1'
+      - ''
+      - '&e▶ &lCLICK &7to Run'
+    click_commands:
+      - '[close]'
+      - '[player] gamemode 1'
+
+  survival:
+    material: GRASS_BLOCK
+    legacy_material: GRASS
+    slot: 13
+    priority: 10
+    click_permission: smpmenus.staff
+    display_name: '&#00C957&lSURVIVAL MODE'
+    lore:
+      - '&7Switch back to survival mode.'
+      - ''
+      - '&8• &7Return to normal gameplay'
+      - '&8• &7Useful after staff work'
+      - '&8• &7Command: &f/gamemode 0'
+      - ''
+      - '&e▶ &lCLICK &7to Run'
+    click_commands:
+      - '[close]'
+      - '[player] gamemode 0'
+
+  staff_mode:
+    material: BLAZE_ROD
+    legacy_material: BLAZE_ROD
+    slot: 14
+    priority: 10
+    click_permission: smpmenus.staff
+    display_name: '&#FF8C00&lSTAFF MODE'
+    lore:
+      - '&7Enter staff mode.'
+      - ''
+      - '&8• &7Moderation tools'
+      - '&8• &7Staff visibility controls'
+      - '&8• &7Command: &f/staff'
+      - ''
+      - '&e▶ &lCLICK &7to Toggle'
+    click_commands:
+      - '[close]'
+      - '[player] staff'
+
+  vanish:
+    material: ENDER_PEARL
+    legacy_material: ENDER_PEARL
+    slot: 15
+    priority: 10
+    click_permission: smpmenus.staff
+    display_name: '&#8A00FF&lVANISH'
+    lore:
+      - '&7Toggle invisibility from players.'
+      - ''
+      - '&8• &7Watch suspicious players'
+      - '&8• &7Moderate quietly'
+      - '&8• &7Command: &f/vanish'
+      - ''
+      - '&e▶ &lCLICK &7to Toggle'
+    click_commands:
+      - '[close]'
+      - '[player] vanish'
+
+  heal:
+    material: POTION
+    legacy_material: POTION
+    slot: 16
+    priority: 10
+    click_permission: smpmenus.staff
+    display_name: '&#FF5555&lHEAL'
+    lore:
+      - '&7Restore health when needed.'
+      - ''
+      - '&8• &7Recover during staff work'
+      - '&8• &7Fix accidental damage'
+      - '&8• &7Command: &f/heal'
+      - ''
+      - '&e▶ &lCLICK &7to Run'
+    click_commands:
+      - '[close]'
+      - '[player] heal'

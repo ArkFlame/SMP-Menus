@@ -1,0 +1,24 @@
+# Normalize text files across OSes
+* text=auto eol=lf
+
+# Source/config text
+*.java text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.properties text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+
+# Binary artifacts
+*.jar binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary

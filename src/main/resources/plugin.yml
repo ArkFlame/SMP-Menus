@@ -1,0 +1,31 @@
+name: ${project.name}
+version: ${project.version}
+main: ${plugin.main}
+folia-supported: true
+author: ${plugin.author}
+description: ${project.description}
+api-version: 1.13
+softdepend:
+  - PlaceholderAPI
+commands:
+  smpmenus:
+    description: ${project.name} admin command.
+    usage: /smpmenus [reload|open|list]
+    aliases: [smpmenusadmin, smpm, smphelp, smph]
+  help:
+    description: Opens the server help menu.
+    usage: /help
+  guide:
+    description: Opens the server help menu.
+    usage: /guide
+permissions:
+  smpmenus.use:
+    default: true
+  smpmenus.admin:
+    default: op
+  smpmenus.staff:
+    default: op
+  smphelp.use:
+    default: true
+  smphelp.admin:
+    default: op

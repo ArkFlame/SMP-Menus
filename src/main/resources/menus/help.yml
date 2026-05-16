@@ -1,0 +1,418 @@
+# SMPMenus menu format. DeluxeMenus-like, but small and strict.
+# Dynamic defaults: missing material/name/lore/actions fall back safely.
+# Heads: https://minecraft-heads.com/custom-heads
+enabled: true
+menu_title: '&8Server Info'
+open_command:
+  - help
+  - guide
+  - menu
+  - info
+  - serverinfo
+size: 45
+rows: 5
+register_command: true
+update_interval: 0
+close_on_click: false
+click_cooldown: 500
+open_commands:
+  - '[sound] BLOCK_CHEST_OPEN'
+items:
+  filler_glass:
+    material: GRAY_STAINED_GLASS_PANE
+    legacy_material: STAINED_GLASS_PANE
+    data: 7
+    slots: [0-44]
+    priority: -100
+    display_name: '&r'
+
+  world_info:
+    material: GRASS_BLOCK
+    legacy_material: GRASS
+    slot: 10
+    priority: 10
+    display_name: '&#00C957&lWORLD INFO'
+    lore:
+      - '&7Basic survival world information.'
+      - ''
+      - '&8• &7Difficulty: &cHard'
+      - '&8• &7Border: &fWorld-limited'
+      - '&8• &7Lifesteal: &cEnabled'
+      - '&8• &7Mace PvP: &cEnabled'
+      - '&8• &7Overworld: &f40k x 40k'
+      - '&8• &7Nether & End: &f30k x 30k'
+      - ''
+      - '&e▶ &lCLICK &7to print info'
+    click_commands:
+      - '[message] &#00C957&lWORLD INFO'
+      - '[message] &8• &7Difficulty: &cHard'
+      - '[message] &8• &7Border: &fOverworld 40k x 40k'
+      - '[message] &8• &7Nether & End: &f30k x 30k'
+      - '[sound] ENTITY_ITEM_PICKUP'
+
+  store:
+    material: RED_CANDLE
+    legacy_material: REDSTONE_TORCH_ON
+    slot: 11
+    priority: 10
+    display_name: '&#FF8C00&lS&#FF7C00&lT&#FF6B00&lO&#FF5B00&lR&#FF4A00&lE'
+    lore:
+      - '&7Ranks give you strong rewards.'
+      - '&7Main info is on Discord and store.'
+      - ''
+      - '&8• &7Earn millions in game'
+      - '&8• &7Thousands of shards'
+      - '&8• &7Custom kits per rank'
+      - ''
+      - '&8• &7Command: &f/store'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] store'
+
+  discord:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19
+    slot: 12
+    priority: 10
+    display_name: '&#5865F2&lDISCORD'
+    lore:
+      - '&7Join our Discord.'
+      - ''
+      - '&8• &7Events'
+      - '&8• &7Announcements and updates'
+      - '&8• &7Giveaways'
+      - ''
+      - '&8• &7Command: &f/discord'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] discord'
+
+  auction:
+    material: GOLD_INGOT
+    slot: 13
+    priority: 10
+    display_name: '&#FFFF00&lAUCTION HOUSE'
+    lore:
+      - '&7Buy and sell items with players.'
+      - ''
+      - '&8• &7Browse listings'
+      - '&8• &7Sell valuable loot'
+      - '&8• &7Control market prices'
+      - ''
+      - '&8• &7Command: &f/ah'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] ah'
+
+  orders:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjk4YmM2M2YwNWY2Mzc4YmYyOWVmMTBlM2Q4MmFjYjNjZWI3M2E3MjBiZjgwZjMwYmM1NzZkMGFkOGM0MGNmYiJ9fX0=
+    slot: 14
+    priority: 10
+    display_name: '&#D2691E&lORDERS'
+    lore:
+      - '&7Create and complete server orders.'
+      - ''
+      - '&8• &7Earn money from demand'
+      - '&8• &7Trade resources faster'
+      - '&8• &7Progress economy goals'
+      - ''
+      - '&8• &7Command: &f/orders'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] orders'
+
+  sell:
+    material: EMERALD
+    slot: 15
+    priority: 10
+    display_name: '&#00FF88&lSELL'
+    lore:
+      - '&7Sell items for server money.'
+      - ''
+      - '&8• &7Convert farms into cash'
+      - '&8• &7Use money for gear'
+      - '&8• &7Grow your balance'
+      - ''
+      - '&8• &7Command: &f/sell'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] sell'
+
+  shop:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzhlYTc5MzM1ODFlZTlmYjQwMGYzOTA0NGQzMDE1Y2EwZDQzYmI2ZTcyZmM5MjY3YzdmZDEzNjFmNjhmZjEyYiJ9fX0=
+    slot: 16
+    priority: 10
+    display_name: '&#13C3F5&lSHOP'
+    lore:
+      - '&7Buy useful survival items.'
+      - ''
+      - '&8• &7Blocks and supplies'
+      - '&8• &7PvP gear'
+      - '&8• &7Progression items'
+      - ''
+      - '&8• &7Command: &f/shop'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] shop'
+
+  rtp:
+    material: OAK_SAPLING
+    legacy_material: SAPLING
+    slot: 19
+    priority: 10
+    display_name: '&#00C957&lRANDOM TELEPORT'
+    lore:
+      - '&7Teleport far away from spawn.'
+      - ''
+      - '&8• &7Overworld: &f40k x 40k'
+      - '&8• &7Nether: &f30k x 30k'
+      - '&8• &7End: &f30k x 30k'
+      - ''
+      - '&8• &7Command: &f/rtp'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] rtp'
+
+  leaderboards:
+    material: CLOCK
+    slot: 20
+    priority: 10
+    display_name: '&#F4C430&lLEADERBOARDS'
+    lore:
+      - '&7Look at top players.'
+      - '&7Compete for top spots.'
+      - ''
+      - '&8• &7Richest players'
+      - '&8• &7Best grinders'
+      - '&8• &7Top fighters'
+      - ''
+      - '&8• &7Command: &f/leaderboards'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] leaderboards'
+
+  stats:
+    material: COMPASS
+    slot: 21
+    priority: 10
+    display_name: '&#00BFFF&lSTATS'
+    lore:
+      - '&7Check your player progress.'
+      - ''
+      - '&8• &7Balance'
+      - '&8• &7Kills and deaths'
+      - '&8• &7Playtime and rank progress'
+      - ''
+      - '&8• &7Command: &f/stats'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] stats'
+
+  coinflip:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWJkYTVmMzE5MzdiMmZmNzU1MjcxZDk3ZjAxYmU4NGQ1MmE0MDdiMzZjYTc3NDUxODU2MTYyYWM2Y2ZiYjM0ZiJ9fX0=
+    slot: 22
+    priority: 10
+    display_name: '&#FFD700&lCOINFLIP'
+    lore:
+      - '&7Gamble your money against players.'
+      - ''
+      - '&8• &7Create coinflip games'
+      - '&8• &7Join active bets'
+      - '&8• &7Win or lose money fast'
+      - ''
+      - '&8• &7Command: &f/coinflip'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] coinflip'
+
+  lifesteal:
+    material: RED_DYE
+    legacy_material: INK_SACK
+    data: 1
+    slot: 23
+    priority: 10
+    display_name: '&#FF0000&lLIFESTEAL'
+    lore:
+      - '&7Eliminate players to gain hearts.'
+      - ''
+      - '&8• &7Max hearts: &c20'
+      - '&8• &7Death loses hearts'
+      - '&8• &7Zero hearts causes ban timer'
+      - ''
+      - '&8• &7Commands: &f/withdraw&7, &f/ls recipe'
+      - '&e▶ &lCLICK &7to View Recipe'
+    click_commands:
+      - '[close]'
+      - '[player] ls recipe'
+
+  kits:
+    material: SHULKER_BOX
+    slot: 24
+    priority: 10
+    display_name: '&#8A00FF&lKITS'
+    lore:
+      - '&7Claim available kits.'
+      - ''
+      - '&8• &7Starter gear'
+      - '&8• &7Rank kits'
+      - '&8• &7Cooldown-based rewards'
+      - ''
+      - '&8• &7Command: &f/kit'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] kit'
+
+  afk:
+    material: AMETHYST_SHARD
+    legacy_material: PRISMARINE_CRYSTALS
+    slot: 25
+    priority: 10
+    display_name: '&#8A00FF&lAFK SHARDS'
+    lore:
+      - '&7Earn shards while idle.'
+      - ''
+      - '&8• &7Buy spawners'
+      - '&8• &7Buy keys'
+      - '&8• &7Use shard shop rewards'
+      - ''
+      - '&8• &7Commands: &f/afk&7, &f/shard shop'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] afk'
+
+  tpa:
+    material: ENDER_PEARL
+    legacy_material: ENDER_PEARL
+    slot: 28
+    priority: 10
+    display_name: '&#7FFFD4&lTPA'
+    lore:
+      - '&7Teleport to other players safely.'
+      - ''
+      - '&8• &7Request teleport: &f/tpa <player>'
+      - '&8• &7Accept request: &f/tpaccept'
+      - '&8• &7Deny request: &f/tpdeny'
+      - ''
+      - '&8• &7Command: &f/tpa'
+      - '&e▶ &lCLICK &7to Use'
+    click_commands:
+      - '[close]'
+      - '[player] tpa'
+
+  rules:
+    material: BOOK
+    slot: 29
+    priority: 10
+    display_name: '&#B6FF7A&lRULES'
+    lore:
+      - '&7Keep the community safe.'
+      - '&7Rule breaking can cause punishment.'
+      - ''
+      - '&8• &7No cheating'
+      - '&8• &7No abuse'
+      - '&8• &7Use common sense'
+      - ''
+      - '&8• &7Command: &f/rules'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[menu] rules'
+
+  homes:
+    material: OAK_DOOR
+    legacy_material: WOOD_DOOR
+    slot: 30
+    priority: 10
+    display_name: '&#FFB347&lHOMES'
+    lore:
+      - '&7Open your homes menu.'
+      - '&7Set and manage safe return points.'
+      - ''
+      - '&8• &7Open homes: &f/home'
+      - '&8• &7Set homes from the menu'
+      - '&8• &7Return to your base faster'
+      - ''
+      - '&8• &7Command: &f/home'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] home'
+
+  team:
+    material: LEATHER_HELMET
+    slot: 31
+    priority: 10
+    display_name: '&#00FF66&lTEAM'
+    lore:
+      - '&7Create or join a team.'
+      - '&7Play and progress together.'
+      - ''
+      - '&8• &7Invite allies'
+      - '&8• &7Coordinate fights'
+      - '&8• &7Build together'
+      - ''
+      - '&8• &7Command: &f/team'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] team'
+
+  crates:
+    material: ENDER_CHEST
+    legacy_material: ENDER_CHEST
+    slot: 32
+    priority: 10
+    display_name: '&#A259FF&lCRATE CHANCES'
+    lore:
+      - '&7View crate rewards and chances.'
+      - ''
+      - '&8• &7Preview possible rewards'
+      - '&8• &7Check drop percentages'
+      - '&8• &7Know what each crate can give'
+      - ''
+      - '&8• &7Command: &f/crate chances'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] crate chances'
+
+  media:
+    material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTI0ZTgyNWIyNWZmNzkzOGI1OGFmNTJmNThlNGQ1NGVjNTE0M2JkNWExYjQ4NGYxZmY5ZGQ2YmEwYWNhOWRjYiJ9fX0=
+    slot: 33
+    priority: 10
+    display_name: '&#FF55FF&lMEDIA'
+    lore:
+      - '&7Apply for media rank.'
+      - ''
+      - '&8• &7Creator rewards'
+      - '&8• &7Community exposure'
+      - '&8• &7Server promotion'
+      - ''
+      - '&8• &7Command: &f/media'
+      - '&e▶ &lCLICK &7to Open'
+    click_commands:
+      - '[close]'
+      - '[player] media'
+
+  close:
+    material: BARRIER
+    legacy_material: BARRIER
+    slot: 40
+    priority: 20
+    display_name: '&c&lCLOSE'
+    lore:
+      - '&7Close this menu.'
+      - ''
+      - '&e▶ &lCLICK &7to Close'
+    click_commands:
+      - '[close]'

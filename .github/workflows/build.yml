@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Maven Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn -B -DskipTests clean package
+
+      - name: Run tests
+        run: mvn -B test
+
+      - name: Upload jar artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: SMPMenus-build
+          path: target/*.jar
+          if-no-files-found: error

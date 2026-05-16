@@ -1,0 +1,35 @@
+name: Feature request
+description: Request a scoped SMPMenus feature.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should the feature accomplish?
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Exact behavior
+      description: Commands, config keys, menu behavior, permissions, examples.
+    validations:
+      required: true
+
+  - type: textarea
+    id: non-goals
+    attributes:
+      label: Non-goals
+      description: What should not be changed?
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or screenshots
+    validations:
+      required: false

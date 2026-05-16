@@ -1,0 +1,159 @@
+# SMPMenus rules menu
+enabled: true
+menu_title: '&8Server Rules'
+open_command:
+  - rules
+  - rule
+  - serverrules
+size: 36
+rows: 4
+register_command: true
+update_interval: 0
+close_on_click: false
+click_cooldown: 500
+open_commands:
+  - '[sound] BLOCK_CHEST_OPEN'
+
+items:
+  filler_glass:
+    material: GRAY_STAINED_GLASS_PANE
+    legacy_material: STAINED_GLASS_PANE
+    data: 7
+    slots: [0-35]
+    priority: -100
+    display_name: '&r'
+
+  threats:
+    material: BOOK
+    slot: 10
+    priority: 10
+    display_name: '&#A259FF&lTHREATS'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo doxing/DDOS threats'
+      - '&#A259FF♦ &fNo personal info sharing'
+      - '&#A259FF♦ &fNo malicious links'
+      - '&#A259FF♦ &f"Jokes" still punished'
+
+  refunds:
+    material: BOOK
+    slot: 11
+    priority: 10
+    display_name: '&#A259FF&lREFUNDS'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo refunds for any reason'
+      - '&#A259FF♦ &fRanks not extended if banned'
+      - '&#A259FF♦ &fAll sales are final'
+
+  farms:
+    material: BOOK
+    slot: 12
+    priority: 10
+    display_name: '&#A259FF&lFARMS'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fLarge farms may be removed'
+      - '&#A259FF♦ &fAsk staff if unsure'
+
+  scamming:
+    material: BOOK
+    slot: 13
+    priority: 10
+    display_name: '&#A259FF&lSCAMMING'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo store item scams'
+      - '&#A259FF♦ &fMinecraft item scams allowed'
+      - '&#A259FF♦ &fTrade at your own risk'
+      - '&#A259FF♦ &fNo IRL trading'
+
+  discrimination:
+    material: BOOK
+    slot: 14
+    priority: 10
+    display_name: '&#A259FF&lDISCRIMINATION'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo racism/sexism/homophobia'
+      - '&#A259FF♦ &fNo discrimination of any kind'
+      - '&#A259FF♦ &fBe respectful to all players'
+
+  unfair_advantages:
+    material: BOOK
+    slot: 15
+    priority: 10
+    display_name: '&#A259FF&lUNFAIR ADVANTAGES'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo hacks/mods/macros'
+      - '&#A259FF♦ &fNo bug abuse or exploits'
+      - '&#A259FF♦ &fNo punishment bypassing'
+      - '&#A259FF♦ &fEasyMC = permanent ban'
+
+  advertising:
+    material: BOOK
+    slot: 16
+    priority: 10
+    display_name: '&#A259FF&lADVERTISING'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo server advertising'
+      - '&#A259FF♦ &fYouTube links must be server related'
+      - '&#A259FF♦ &fUse /live for streams'
+      - '&#A259FF♦ &fNo public cross-trading ads'
+
+  content_rules:
+    material: BOOK
+    slot: 21
+    priority: 10
+    display_name: '&#A259FF&lCONTENT RULES'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo offensive topics'
+      - '&#A259FF♦ &fNo sexual/political content'
+      - '&#A259FF♦ &fNo inappropriate builds/names'
+      - '&#A259FF♦ &fNo offensive skins/cosmetics'
+
+  chat_rules:
+    material: BOOK
+    slot: 23
+    priority: 10
+    display_name: '&#A259FF&lCHAT RULES'
+    lore:
+      - '&8Rules'
+      - ''
+      - '&#A259FFInformation:'
+      - '&#A259FF♦ &fNo abusive language or harassment'
+      - '&#A259FF♦ &fNo spamming or caps abuse'
+      - '&#A259FF♦ &fNo bypassing chat filters'
+      - '&#A259FF♦ &fNo toxicity or threats'
+
+  close:
+    material: BARRIER
+    legacy_material: BARRIER
+    slot: 31
+    priority: 20
+    display_name: '&c&lCLOSE'
+    lore:
+      - '&7Close this menu.'
+      - ''
+      - '&e▶ &lCLICK &7to Close'
+    click_commands:
+      - '[close]'

@@ -1,0 +1,38 @@
+# SMPMenus 1.0.0
+# Menus live in plugins/SMPMenus/menus/*.yml.
+# Command aliases are configured inside each menu using open_command.
+main-menu: help
+intercept-help-command: true
+intercept-menu-open-commands: true
+reload-reopens-active-menus: true
+close-open-menu-on-disable: true
+debug: false
+messages:
+  reload: '&#13C3F5&lSMPMenus &8» &fMenus reloaded.'
+  no-permission: '&cYou do not have permission to do that.'
+  only-player: '&cOnly players can use this command.'
+  unknown-menu: '&cUnknown menu: &f%menu%'
+  unknown-subcommand: '&cUsage: &f/smpmenus reload &7| &f/smpmenus open <menu> [player] &7| &f/smpmenus list'
+  opened-for-other: '&#13C3F5&lSMPMenus &8» &fOpened &b%menu% &ffor &b%player%&f.'
+  no-online-player: '&cPlayer not found: &f%player%'
+sounds:
+  open:
+    enabled: true
+    sound: BLOCK_CHEST_OPEN
+    volume: 1.0
+    pitch: 1.0
+  click:
+    enabled: true
+    sound: UI_BUTTON_CLICK
+    volume: 1.0
+    pitch: 1.0
+  reload:
+    enabled: true
+    sound: ENTITY_PLAYER_LEVELUP
+    volume: 1.0
+    pitch: 1.0
+  deny:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_BASS
+    volume: 1.0
+    pitch: 0.7
