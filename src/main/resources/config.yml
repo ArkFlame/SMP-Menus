@@ -1,4 +1,4 @@
-# SMPMenus 1.0.0
+# SMPMenus 1.0.1
 # Menus live in plugins/SMPMenus/menus/*.yml.
 # Command aliases are configured inside each menu using open_command.
 main-menu: help
