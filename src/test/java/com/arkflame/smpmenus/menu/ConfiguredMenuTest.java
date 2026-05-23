@@ -17,6 +17,7 @@ public final class ConfiguredMenuTest {
                 null,
                 0,
                 0,
+                "",
                 1,
                 "&fTest",
                 Collections.<String>emptyList(),

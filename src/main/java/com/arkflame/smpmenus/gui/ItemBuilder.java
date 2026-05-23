@@ -8,8 +8,11 @@ import com.arkflame.smpmenus.util.MaterialResolver;
 import com.arkflame.smpmenus.util.MessageService;
 import com.arkflame.smpmenus.util.ReflectionUtil;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -23,11 +26,14 @@ public final class ItemBuilder {
     private final Plugin plugin;
     private final MessageService messageService;
     private final HeadItemFactory headItemFactory;
+    private final ItemColorApplier itemColorApplier;
+    private final Set<String> invalidRgbWarnings = Collections.newSetFromMap(new ConcurrentHashMap<String, Boolean>());
 
     public ItemBuilder(final Plugin plugin, final MessageService messageService, final PlaceholderHook placeholderHook) {
         this.plugin = plugin;
         this.messageService = messageService;
         this.headItemFactory = new HeadItemFactory(plugin, placeholderHook);
+        this.itemColorApplier = new ItemColorApplier(plugin);
     }
 
     public ItemStack build(final Player player, final String menuId, final MenuOpenContext context, final MenuItemDefinition definition) {
@@ -61,6 +67,7 @@ public final class ItemBuilder {
             lore.add(messageService.render(player, line, menuId));
         }
         meta.setLore(lore);
+        applyRgb(player, menuId, definition, meta);
         if (definition.isUnbreakable()) {
             ReflectionUtil.invokeVoidSafe(meta, "setUnbreakable", new Object[] { Boolean.TRUE }, boolean.class);
         }
@@ -78,6 +85,31 @@ public final class ItemBuilder {
                 plugin.getLogger().log(Level.FINE, "Could not apply glow to menu item.", exception);
             }
         }
+    }
+
+    private void applyRgb(final Player player, final String menuId, final MenuItemDefinition definition, final ItemMeta meta) {
+        if (!definition.hasRgb()) {
+            return;
+        }
+        final String renderedRgb = messageService.render(player, definition.getRgb(), menuId);
+        final Optional<RgbColor> rgbColor = RgbColor.parse(renderedRgb);
+        if (!rgbColor.isPresent()) {
+            warnInvalidRgbOnce(menuId, definition, renderedRgb);
+            return;
+        }
+        itemColorApplier.apply(meta, rgbColor.get());
+    }
+
+    private void warnInvalidRgbOnce(final String menuId, final MenuItemDefinition definition, final String renderedRgb) {
+        final String key = menuId + ':' + definition.getId() + ':' + definition.getRgb() + ':' + renderedRgb;
+        if (!invalidRgbWarnings.add(key)) {
+            return;
+        }
+        plugin.getLogger().warning(
+                "Invalid rgb value for menu item " + menuId + "." + definition.getId()
+                        + ": '" + definition.getRgb() + "' rendered as '" + renderedRgb
+                        + "'. Expected format: red, green, blue with each channel from 0 to 255."
+        );
     }
 
     public void clearHeadCaches() {

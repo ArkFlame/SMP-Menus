@@ -102,6 +102,7 @@ public final class MenuLoader {
                 section.getString("legacy_material", null),
                 section.getInt("data", section.getInt("damage", 0)),
                 section.getInt("damage", 0),
+                section.getString("rgb", ""),
                 section.getInt("amount", 1),
                 section.getString("display_name", section.getString("name", "&f" + id)),
                 section.getStringList("lore"),

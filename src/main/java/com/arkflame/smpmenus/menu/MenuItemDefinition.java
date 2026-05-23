@@ -15,6 +15,7 @@ public final class MenuItemDefinition {
     private final String legacyMaterial;
     private final int data;
     private final int damage;
+    private final String rgb;
     private final int amount;
     private final String displayName;
     private final List<String> lore;
@@ -35,6 +36,7 @@ public final class MenuItemDefinition {
             final String legacyMaterial,
             final int data,
             final int damage,
+            final String rgb,
             final int amount,
             final String displayName,
             final List<String> lore,
@@ -54,6 +56,7 @@ public final class MenuItemDefinition {
         this.legacyMaterial = legacyMaterial;
         this.data = data;
         this.damage = damage;
+        this.rgb = normalizeRgb(rgb);
         this.amount = amount;
         this.displayName = displayName;
         this.lore = Collections.unmodifiableList(new ArrayList<String>(lore));
@@ -71,6 +74,10 @@ public final class MenuItemDefinition {
 
     private static String normalizePermission(final String permission) {
         return permission == null ? "" : permission.trim();
+    }
+
+    private static String normalizeRgb(final String rgb) {
+        return rgb == null ? "" : rgb.trim();
     }
 
     private static Map<MenuClickType, List<String>> copyCommands(final Map<MenuClickType, List<String>> source) {
@@ -101,5 +108,9 @@ public final class MenuItemDefinition {
 
     public boolean hasClickPermission() {
         return !clickPermission.isEmpty();
+    }
+
+    public boolean hasRgb() {
+        return !rgb.isEmpty();
     }
 }

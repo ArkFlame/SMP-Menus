@@ -95,6 +95,11 @@ public final class MaterialResolver {
         aliases.put("WRITABLE_BOOK", Arrays.asList("BOOK_AND_QUILL", "BOOK"));
         aliases.put("KNOWLEDGE_BOOK", Arrays.asList("BOOK"));
         aliases.put("IRON_BARS", Arrays.asList("IRON_FENCE"));
+        aliases.put("FIREWORK_STAR", Arrays.asList("FIREWORK_CHARGE"));
+        aliases.put("FIREWORK_CHARGE", Arrays.asList("FIREWORK_STAR"));
+        aliases.put("SPLASH_POTION", Arrays.asList("POTION"));
+        aliases.put("LINGERING_POTION", Arrays.asList("POTION"));
+        aliases.put("TIPPED_ARROW", Arrays.asList("ARROW"));
         return Collections.unmodifiableMap(aliases);
     }
 
