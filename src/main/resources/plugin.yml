@@ -7,17 +7,6 @@ description: ${project.description}
 api-version: 1.13
 softdepend:
   - PlaceholderAPI
-commands:
-  smpmenus:
-    description: ${project.name} admin command.
-    usage: /smpmenus [reload|open|list]
-    aliases: [smpmenusadmin, smpm, smphelp, smph]
-  help:
-    description: Opens the server help menu.
-    usage: /help
-  guide:
-    description: Opens the server help menu.
-    usage: /guide
 permissions:
   smpmenus.use:
     default: true

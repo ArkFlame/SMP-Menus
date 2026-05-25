@@ -26,6 +26,9 @@ public final class HelpCommandInterceptListener implements Listener {
         if (!plugin.getSettings().isInterceptHelpCommand() && first.equalsIgnoreCase("help")) {
             return;
         }
+        if (plugin.getCommandRegistry() != null && plugin.getCommandRegistry().isExactRegisteredLabel(first)) {
+            return;
+        }
         final String menuId = plugin.getMenuManager().findMenuByCommand(first);
         if (menuId == null) {
             return;

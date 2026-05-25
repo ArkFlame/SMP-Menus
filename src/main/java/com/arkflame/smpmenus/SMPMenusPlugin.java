@@ -1,9 +1,10 @@
 package com.arkflame.smpmenus;
 
-import com.arkflame.smpmenus.command.HelpCommand;
+import com.arkflame.smpmenus.command.DynamicCommandRegistry;
 import com.arkflame.smpmenus.command.SmpMenusCommand;
 import com.arkflame.smpmenus.config.PluginSettings;
 import com.arkflame.smpmenus.hook.PlaceholderHook;
+import com.arkflame.smpmenus.listener.DynamicCommandRefreshListener;
 import com.arkflame.smpmenus.listener.HelpCommandInterceptListener;
 import com.arkflame.smpmenus.listener.MenuClickListener;
 import com.arkflame.smpmenus.listener.MenuCloseListener;
@@ -14,7 +15,6 @@ import com.arkflame.smpmenus.util.FoliaAPI;
 import com.arkflame.smpmenus.util.MessageService;
 import com.arkflame.smpmenus.util.SoundService;
 import org.bukkit.Bukkit;
-import org.bukkit.command.PluginCommand;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +25,7 @@ public final class SMPMenusPlugin extends JavaPlugin {
     private MessageService messageService;
     private SoundService soundService;
     private MenuManager menuManager;
+    private DynamicCommandRegistry commandRegistry;
 
     @Override
     public void onEnable() {
@@ -45,6 +46,9 @@ public final class SMPMenusPlugin extends JavaPlugin {
             }
             menuManager.close();
         }
+        if (commandRegistry != null) {
+            commandRegistry.shutdown();
+        }
         FoliaAPI.cancelAllTasks();
         HandlerList.unregisterAll(this);
     }
@@ -60,6 +64,9 @@ public final class SMPMenusPlugin extends JavaPlugin {
         }
         this.menuManager = new MenuManager(this, messageService, soundService, placeholderHook, settings);
         this.menuManager.reload();
+        if (this.commandRegistry != null) {
+            this.commandRegistry.reload();
+        }
     }
 
     public PluginSettings getSettings() {
@@ -82,22 +89,13 @@ public final class SMPMenusPlugin extends JavaPlugin {
         return menuManager;
     }
 
+    public DynamicCommandRegistry getCommandRegistry() {
+        return commandRegistry;
+    }
+
     private void registerCommands() {
-        final SmpMenusCommand adminCommand = new SmpMenusCommand(this);
-        final PluginCommand smpMenus = getCommand("smpmenus");
-        if (smpMenus != null) {
-            smpMenus.setExecutor(adminCommand);
-            smpMenus.setTabCompleter(adminCommand);
-        }
-        final HelpCommand helpCommand = new HelpCommand(this);
-        final PluginCommand help = getCommand("help");
-        if (help != null) {
-            help.setExecutor(helpCommand);
-        }
-        final PluginCommand guide = getCommand("guide");
-        if (guide != null) {
-            guide.setExecutor(helpCommand);
-        }
+        this.commandRegistry = new DynamicCommandRegistry(this, new SmpMenusCommand(this));
+        this.commandRegistry.reload();
     }
 
     private void registerListeners() {
@@ -107,6 +105,7 @@ public final class SMPMenusPlugin extends JavaPlugin {
         pluginManager.registerEvents(new MenuCloseListener(this), this);
         pluginManager.registerEvents(new PlayerQuitListener(this), this);
         pluginManager.registerEvents(new HelpCommandInterceptListener(this), this);
+        pluginManager.registerEvents(new DynamicCommandRefreshListener(this), this);
     }
 
     private void saveDefaultMenusIfAbsent() {

@@ -1,19 +1,15 @@
 package com.arkflame.smpmenus.command;
 
 import com.arkflame.smpmenus.SMPMenusPlugin;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 @RequiredArgsConstructor
-public final class SmpMenusCommand implements CommandExecutor, TabCompleter {
+public final class SmpMenusCommand implements CommandExecutor {
     private final SMPMenusPlugin plugin;
 
     @Override
@@ -39,24 +35,6 @@ public final class SmpMenusCommand implements CommandExecutor, TabCompleter {
         }
         plugin.getMessageService().sendConfigMessage(sender, "unknown-subcommand", "&cUsage: &f/smpmenus reload &7| &f/smpmenus open <menu> [player] &7| &f/smpmenus list");
         return true;
-    }
-
-    @Override
-    public List<String> onTabComplete(final CommandSender sender, final Command command, final String alias, final String[] args) {
-        if (args.length == 1) {
-            return filter(args[0], list("reload", "open", "list"));
-        }
-        if (args.length == 2 && "open".equalsIgnoreCase(args[0])) {
-            return filter(args[1], new ArrayList<String>(plugin.getMenuManager().getMenuIds()));
-        }
-        if (args.length == 3 && "open".equalsIgnoreCase(args[0])) {
-            final List<String> names = new ArrayList<String>();
-            for (final Player player : Bukkit.getOnlinePlayers()) {
-                names.add(player.getName());
-            }
-            return filter(args[2], names);
-        }
-        return Collections.emptyList();
     }
 
     private static boolean hasAdmin(final CommandSender sender) {
@@ -102,22 +80,5 @@ public final class SmpMenusCommand implements CommandExecutor, TabCompleter {
         }
         plugin.getMenuManager().open((Player) sender, menu);
         return true;
-    }
-
-    private static List<String> list(final String... values) {
-        final List<String> output = new ArrayList<String>();
-        Collections.addAll(output, values);
-        return output;
-    }
-
-    private static List<String> filter(final String prefix, final List<String> values) {
-        final List<String> output = new ArrayList<String>();
-        final String lower = prefix.toLowerCase();
-        for (final String value : values) {
-            if (value.toLowerCase().startsWith(lower)) {
-                output.add(value);
-            }
-        }
-        return output;
     }
 }

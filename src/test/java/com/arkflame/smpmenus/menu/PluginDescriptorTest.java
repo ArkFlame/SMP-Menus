@@ -20,4 +20,9 @@ public final class PluginDescriptorTest {
     public void staffPermissionDefaultsToOp() {
         Assertions.assertEquals("op", loadDescriptor().getString("permissions.smpmenus.staff.default"));
     }
+
+    @Test
+    public void doesNotDeclareStaticCommands() {
+        Assertions.assertFalse(loadDescriptor().contains("commands"));
+    }
 }
