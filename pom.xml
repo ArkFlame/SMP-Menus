@@ -15,7 +15,7 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot.version>1.8.8-R0.1-SNAPSHOT</spigot.version>
+        <panda.version>1.8.8-R0.1-SNAPSHOT</panda.version>
         <plugin.author>ArkFlame Development</plugin.author>
         <plugin.main>com.arkflame.smpmenus.SMPMenusPlugin</plugin.main>
         <lombok.version>1.18.46</lombok.version>
@@ -23,16 +23,16 @@
 
     <repositories>
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>hpfxd-repo</id>
+            <url>https://repo.hpfxd.com/releases/</url>
         </repository>
     </repositories>
 
     <dependencies>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>${spigot.version}</version>
+            <groupId>com.hpfxd.pandaspigot</groupId>
+            <artifactId>pandaspigot-api</artifactId>
+            <version>${panda.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
